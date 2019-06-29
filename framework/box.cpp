@@ -19,3 +19,9 @@ float Box::volume() const {
   float z_dim = max_[2] - min_[2];
   return x_dim * y_dim * z_dim;
 }
+
+std::ostream& Box::print(std::ostream& os) const {
+  Shape::print(os);
+  os << "Ich bin eine Box.\n";
+  return os;
+};

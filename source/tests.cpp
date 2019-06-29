@@ -29,6 +29,14 @@ TEST_CASE("area and volume", "[area_and_volume]" )
   REQUIRE(s2.volume() == Approx((4.f/3.f)*M_PI*pow(4, 3)));
 }
 
+// exercise 5.4
+TEST_CASE("print", "[print]" ) 
+{
+  Box b2{"Hans", Color{0.5,0.3,0.5},glm::vec3{-4,-3,2}, glm::vec3{6,2,3}};
+  Sphere s2{"Marie", Color{0.1,0.3,0.8},glm::vec3{-4,-3,2}, 4};
+  std::cout << b2 << s2;
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);

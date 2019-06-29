@@ -10,6 +10,7 @@ class Sphere: public Shape {
     Sphere();
     Sphere(std::string const& name, Color const& color, glm::vec3 const& mid, float radius);
     virtual float area() const override;
+    std::ostream& print(std::ostream& os) const override;
     virtual float volume() const override;
 
   private:
