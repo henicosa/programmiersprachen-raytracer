@@ -18,3 +18,19 @@ std::ostream& Sphere::print(std::ostream& os) const {
   os << "Ich bin eine Sphäre.\n";
   return os;
 };
+
+HitPoint Sphere::intersect(Ray& ray) const {
+  float distance = 0.0f;
+  auto result = glm::intersectRaySphere(
+    ray.origin, ray.direction, 
+    mid_, radius_*radius_, distance);
+  if (result) {
+    glm::vec3 point = ray.origin + ray.direction*distance;
+    return HitPoint{
+      result, distance, 
+      Shape::name_, Shape::color_, 
+      point, ray.direction};
+  } else {
+    return HitPoint{};
+  }
+}

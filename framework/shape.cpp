@@ -12,3 +12,7 @@ std::ostream& operator<<(std::ostream& os, Shape const& s) {
   s.print(os);
   return os;
 };
+
+Shape::~Shape() {
+  std::cout << "Shape deconstruction " << name_ << "\n";
+}
