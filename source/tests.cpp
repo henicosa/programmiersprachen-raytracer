@@ -76,6 +76,33 @@ TEST_CASE ("intersect_ray_sphere", "[intersect]")
   
 }
 
+// exercise 5.8
+TEST_CASE("virtual", "[virtual]" ) 
+{
+  std::cout << "exercise 5.8 tests \n";
+  Color red{255, 0, 0};
+  glm::vec3 position{0.0f, 0.0f, 0.0f};
+  Sphere* s1 = new Sphere{"sphere0", red, position, 1.2f};
+  Shape* s2 = new Sphere{"sphere1", red, position, 1.2f};
+  s1->print(std::cout);
+  s2->print(std::cout);
+  delete s1;
+  delete s2;
+}
+
+// exercise 5.7
+TEST_CASE("static", "[static]" ) 
+{
+  std::cout << "exercise 5.7 tests \n";
+  Color red{255 , 0 , 0};
+  glm::vec3 position{0.0f, 0.0f, 0.0f};
+  std::shared_ptr<Sphere> s1 = std::make_shared<Sphere>("Wassily", red, position,1.2f);
+  std::shared_ptr<Shape> s2 = std::make_shared<Sphere>("Paul", red,position, 1.2f);
+  s1->print(std::cout);
+  s2->print(std::cout);
+}
+
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);

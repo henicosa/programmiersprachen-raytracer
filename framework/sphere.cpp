@@ -34,3 +34,7 @@ HitPoint Sphere::intersect(Ray& ray) const {
     return HitPoint{};
   }
 }
+
+Sphere::~Sphere() {
+  std::cout << "Sphere deconstruction " << name_ << "\n";
+}
